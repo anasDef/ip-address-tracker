@@ -69,7 +69,7 @@ async function IpLocation(ipAdd) {
 }
 
 // Initial call to load user's current location on page load
-// IpLocation();
+IpLocation();
 
 /**
  * Event Listener for Search Button
