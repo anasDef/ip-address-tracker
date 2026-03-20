@@ -1,0 +1,23 @@
+PURPOSE:
+    - Write the IP address and show its location on a map
+============================================
+
+DEPENDENCIES:
+    - Geolocation API by IPify.
+    - Leaflet.js for map rendering.
+
+CONSTRAINTS:
+    - Use Sass for styling.
+    - Responsive design for various screen sizes.
+    - Use BEM methodology for CSS class naming.
+    - Accessible design principles should be followed.
+=============================================
+
+REQUIREMENTS:
+    functional:
+        - See hover states for all interactive elements on the page
+        - User can see their own IP address and location on the map when they first load the page
+        - User can input an IP address
+        - Show the location of the IP address on a map when the user clicks the "Track" button
+        - Show the IP address, location (city, region, country), timezone, and ISP information
+        - Show an error message if the input is invalid (e.g., not a valid IP address)

@@ -1,0 +1,10 @@
+*create ipLocation function(ip):
+    1- make a request to ipify api
+    2- extract ip address, country & city, timezone, lat & lng, isp
+    3- set the ip address, country & city, timezone and isp in the information cards
+    4- generate a map using the lat & lng
+
+* when user click on Enter or track button:
+    1- check if the value or ip is valid
+    2- if not show an error message
+    3- else recall ipLocation function and pass it the ip address that the user entered.

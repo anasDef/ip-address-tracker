@@ -1,0 +1,7 @@
+// use reset
+@use "./layout/reset";
+
+// use components
+@use "./components/header.scss";
+@use "./components/information.scss";
+@use "./components/map.scss";

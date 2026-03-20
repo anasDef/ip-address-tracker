@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Address Tracker</title>
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="./dist/main.css" />
+    <!-- leafletJs -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">IP Address Tracker</h1>
+
+      <div class="header__search">
+        <input
+          type="text"
+          class="header__search-inp"
+          id="search-input"
+          placeholder="Search for any IP address"
+          aria-label="enter your IP address"
+        />
+
+        <button class="header__track-btn" id="track-btn">
+          <img src="./images/icon-arrow.svg" alt="track IP" />
+        </button>
+      </div>
+
+      <div
+        class="header__error-msg"
+        role="alert"
+        aria-live="assertive"
+        aria-hidden="true"
+        id="error-msg"
+      >
+        <h2 class="header__msg">please enter a valid ip address</h2>
+        <p class="header__example">
+          example of IP address: 8.8.8.8 (google IP)
+        </p>
+      </div>
+    </header>
+
+    <section class="informations">
+      <div class="informations__card">
+        <h2 class="informations__title">ip address</h2>
+        <p class="informations__info" id="ip-address" aria-live="polite"></p>
+      </div>
+
+      <div class="informations__card">
+        <h2 class="informations__title">location</h2>
+        <p class="informations__info" id="location" aria-live="polite"></p>
+      </div>
+
+      <div class="informations__card">
+        <h2 class="informations__title">timezone</h2>
+        <p class="informations__info" id="timezone" aria-live="polite"></p>
+      </div>
+
+      <div class="informations__card">
+        <h2 class="informations__title">isp</h2>
+        <p class="informations__info" id="isp" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="map" id="map"></section>
+    <script src="main.js"></script>
+  </body>
+</html>

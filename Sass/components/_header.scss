@@ -1,0 +1,120 @@
+@use "../mixins/mixins.scss" as *;
+@use "../variables/variables" as *;
+
+.header {
+  // Large screens
+  width: 100vw;
+  height: 300px;
+  background-image: url("../../images/pattern-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-block: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  &__title {
+    font-size: 2.1rem;
+    color: $white;
+    font-weight: $fw-500;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 50px;
+    border-radius: 15px;
+    background-color: aqua;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  &__search:has(:focus) {
+    width: 50%;
+  }
+
+  &__search-inp {
+    flex: 1;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.9rem;
+    font-weight: $fw-500;
+    height: 100%;
+    color: $gray-950;
+    padding-inline: 20px;
+  }
+
+  &__track-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 0%);
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  & img {
+    transition: 0.2s ease;
+  }
+
+  &__track-btn:hover {
+    background-color: $gray-950;
+  }
+
+  &__track-btn:hover img {
+    transform: translateX(2px);
+  }
+
+  &__error-msg {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 20px;
+    color: #ffffff;
+    transform: translateY(-200px);
+    transition: 0.3s ease;
+  }
+
+  &__error-msg.show {
+    transform: translateY(0px);
+  }
+
+  &__msg {
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    font-weight: $fw-700;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+    &::before {
+      content: "⚠️ ";
+      font-size: 1rem;
+    }
+  }
+
+  &__example {
+    color: rgba($white, 0.8);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  @include breakpoints("small") {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__search {
+      width: 80%;
+    }
+
+    &__search:has(:focus) {
+      width: 90%;
+    }
+  }
+}

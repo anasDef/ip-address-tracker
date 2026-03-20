@@ -1,0 +1,52 @@
+/**
+ * Media Queries Management Mixins
+ * -----------------------------------------------------------------------------
+ * These mixins handle responsive design by applying styles at specific breakpoints.
+ */
+
+/**
+ * Standard Breakpoints Mixin
+ * @param {String} $device-width - Target device size (small, medium, large).
+ * * Usage:
+ * @include breakpoints("small") {
+ * // Mobile specific styles (max-width: 767px)
+ * }
+ */
+@mixin breakpoints($device-width) {
+  // Mobile devices (max-width: 767px)
+  @if $device-width == "small" {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  // Tablet devices (768px to 1119px)
+  @else if $device-width == "medium" {
+    @media screen and (min-width: 768px) and (max-width: 1119px) {
+      @content;
+    }
+  }
+
+  // Large screens and Desktops (min-width: 1200px)
+  @else if $device-width == "large" {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Custom Breakpoints Mixin
+ * A flexible mixin for specific width values and query types.
+ * @param {Number} $value - Screen width in pixels (e.g., 500px).
+ * @param {String} $minOrMax - Type of query ("min" or "max").
+ * * Usage:
+ * @include custom-breakpoints(500px, "max") {
+ * // Styles for screens smaller than 500px
+ * }
+ */
+@mixin custom-breakpoints($value, $minOrMax) {
+  @media screen and (#{$minOrMax}-width: $value) {
+    @content;
+  }
+}

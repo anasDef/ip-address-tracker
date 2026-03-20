@@ -1,0 +1,211 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+/**
+ * Media Queries Management Mixins
+ * -----------------------------------------------------------------------------
+ * These mixins handle responsive design by applying styles at specific breakpoints.
+ */
+/**
+ * Standard Breakpoints Mixin
+ * @param {String} $device-width - Target device size (small, medium, large).
+ * * Usage:
+ * @include breakpoints("small") {
+ * // Mobile specific styles (max-width: 767px)
+ * }
+ */
+/**
+ * Custom Breakpoints Mixin
+ * A flexible mixin for specific width values and query types.
+ * @param {Number} $value - Screen width in pixels (e.g., 500px).
+ * @param {String} $minOrMax - Type of query ("min" or "max").
+ * * Usage:
+ * @include custom-breakpoints(500px, "max") {
+ * // Styles for screens smaller than 500px
+ * }
+ */
+.header {
+  width: 100vw;
+  height: 300px;
+  background-image: url("../../images/pattern-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-block: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.header__title {
+  font-size: 2.1rem;
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+}
+.header__search {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 50px;
+  border-radius: 15px;
+  background-color: aqua;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.header__search:has(:focus) {
+  width: 50%;
+}
+.header__search-inp {
+  flex: 1;
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  height: 100%;
+  color: hsl(0, 0%, 17%);
+  padding-inline: 20px;
+}
+.header__track-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(0, 0%, 0%);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.header img {
+  transition: 0.2s ease;
+}
+.header__track-btn:hover {
+  background-color: hsl(0, 0%, 17%);
+}
+.header__track-btn:hover img {
+  transform: translateX(2px);
+}
+.header__error-msg {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  transform: translateY(-200px);
+  transition: 0.3s ease;
+}
+.header__error-msg.show {
+  transform: translateY(0px);
+}
+.header__msg {
+  color: #ff6b6b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.header__msg::before {
+  content: "⚠️ ";
+  font-size: 1rem;
+}
+.header__example {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+@media screen and (max-width: 767px) {
+  .header__title {
+    font-size: 1.8rem;
+  }
+  .header__search {
+    width: 80%;
+  }
+  .header__search:has(:focus) {
+    width: 90%;
+  }
+}
+
+.informations {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2.5rem;
+  border-radius: 15px;
+  left: 50%;
+  transform: translate(-50%, -80px);
+  text-align: left;
+  position: absolute;
+  z-index: 11;
+}
+@media screen and (max-width: 767px) {
+  .informations {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    width: 90%;
+    transform: translate(-50%, -150px);
+  }
+}
+.informations__card {
+  flex: 1;
+  border-right: 1px solid rgba(147.9, 147.9, 147.9, 0.3);
+  padding: 0 2rem;
+}
+@media screen and (max-width: 767px) {
+  .informations__card {
+    border-right: none;
+    padding: 0;
+  }
+}
+.informations__card:last-child {
+  border-right: none;
+}
+.informations__title {
+  color: hsl(0, 0%, 58%);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.informations__info {
+  color: hsl(0, 0%, 17%);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+}/*# sourceMappingURL=main.css.map */
